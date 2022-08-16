@@ -43,3 +43,11 @@ MISSING
 ### Install from remote repository with overrides
 
 MISSING
+
+# Helm Chart Contribution Guidelines
+## How to deploy
+1. Run `helm package -u .`
+2. Run `helm repo index --url https://deepset-ai.github.io/haystack-helm/charts`
+3. Switch to `helm-repository` branch
+4. Move .tgz files from poin 1 into the charts folder and update `index.yaml` with the generated one from point 2
+5. Commit & push
