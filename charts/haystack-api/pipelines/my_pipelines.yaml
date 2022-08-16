@@ -1,8 +1,10 @@
-version: '1.5.0'
+version: '1.7.0'
 
 components:    # define all the building-blocks for Pipeline
   - name: DocumentStore
     type: ElasticsearchDocumentStore
+    params:
+      host: will-be-replaced
   - name: Retriever
     type: BM25Retriever
     params:

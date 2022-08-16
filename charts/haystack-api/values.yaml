@@ -86,3 +86,4 @@ affinity: {}
 haystack:
   api:
     documentstore_params_host: elasticsearch-master
+    workers: 2

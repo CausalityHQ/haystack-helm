@@ -24,6 +24,13 @@ If release name contains chart name it will be used as a full name.
 {{- end }}
 
 {{/*
+Generate api URL
+*/}}
+{{- define "haystack-api-url" -}}
+{{- printf "http://%s-haystack-api:8000" .Release.Name -}}
+{{- end -}}
+
+{{/*
 Create chart name and version as used by the chart label.
 */}}
 {{- define "haystack.chart" -}}

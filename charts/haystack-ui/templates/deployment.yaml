@@ -51,7 +51,7 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
             - name: API_ENDPOINT
-              value: {{ tpl .Values.haystack.ui.haystack_api_endpoint . }}
+              value: {{ include "haystack-api-url" . }}
             - name: EVAL_FILE
               value: {{ .Values.haystack.ui.eval_file }}
           command: ["/bin/bash", "-c", "sleep 15 && python -m streamlit run ui/webapp.py"]

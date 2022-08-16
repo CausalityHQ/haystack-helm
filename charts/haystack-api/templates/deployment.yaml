@@ -43,10 +43,10 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
             - name: DOCUMENTSTORE_PARAMS_HOST
-              value: {{ .Values.haystack.api.documentstore_param_host }}
+              value: {{ .Values.haystack.api.documentstore_params_host }}
             - name: PIPELINE_YAML_PATH
               value: /etc/config/my_pipelines.yaml
-          command: ["/bin/bash", "-c", "sleep 10 && gunicorn rest_api.application:app -b 0.0.0.0 -k uvicorn.workers.UvicornWorker --workers", {{.Values.haystack.api.workers}} "--timeout 180"]
+          command: ["/bin/bash", "-c", "sleep 10 && gunicorn rest_api.application:app -b 0.0.0.0 -k uvicorn.workers.UvicornWorker --workers {{.Values.haystack.api.workers}} --timeout 180"]
           volumeMounts:
             - name: config-volume
               mountPath: /etc/config
